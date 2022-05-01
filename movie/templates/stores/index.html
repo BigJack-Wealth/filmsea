@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <section class="banner">
+        <img src="{% static 'img/Artboard.jpg' %}" alt="" class="fit">
+        <div class="logo">
+            <img src="{% static 'img/lol.png' %}" alt="">
+        </div>
+        <div class="box">
+            <div class="heading">
+                <h6>Explore Your Favorite <br> Movies On A Whole New Level.</h6>
+                <a href="{% url 'register' %}" class="btn btn-outline-light p-3" >SIGN UP</a>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- next page -->
+    <section class="contain">
+        <img src="{% static 'img/page2.jpg' %}" alt="" class="me">
+        <div class="love">
+            <div class="page">
+            <h2>Pick <br> Your <br> Favorites</h2>
+            </div>
+            
+        </div>
+    </section>
+    <div class="action">
+        <h4><button type="button" class="btn btn-outline-primary">ACTION</button></h4>
+    </div>
+    <div class="comedy">
+        <h4><button type="button" class="btn btn-outline-primary">COMEDY</button></h4>
+    </div>
+    <div class="thriller">
+        <h4><button type="button" class="btn btn-outline-primary">THRILLER</button></h4>
+    </div>
+    <div class="romance">
+        <h4><button type="button" class="btn btn-outline-primary">ROMANCE</button></h4>
+    </div>
+    <div class="sci-fi">
+        <h4><button type="button" class="btn btn-outline-primary">SCI-FI</button></h4>
+    </div>
+    
+    <section class="containing">
+        <img src="{% static 'img/s.jpg' %}" alt="" class="you">
+        <div class="lol">
+            <div class="cover">
+            <h2>Explore</h2>
+            </div>
+            
+        </div>
+    </section>
+
+
+{% endblock content %}

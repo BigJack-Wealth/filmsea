@@ -1,0 +1,1395 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  
+
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+
+
+<head>
+	<!-- Basic need -->
+	<title>FilmSea</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="{% static 'css/style_.css' %}">
+	<link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+
+</head>
+
+<body>
+<!--preloading-->
+<div id="preloader">
+    <img class="logo" src="{% static 'images/lol.png' %}" alt="" width="119" height="58">
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!--end of preloading-->
+<!--login form popup-->
+<div class="login-wrapper" id="login-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <a href="{% url 'login' %}"><h3>Click To <br>Login</h3></a>
+        
+    </div>
+</div>
+
+<div class="login-wrapper" id="logout-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <a href="{% url 'logout' %}"><h3>Click To <br>Log Out</h3></a>
+        
+    </div>
+</div>
+<!--end of login form popup-->
+<!--signup form popup-->
+<div class="login-wrapper"  id="signup-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <a href="{% url 'register' %}"><h3>Click To <br>Sign Up</h3></a>
+        
+    </div>
+</div>
+<!--end of signup form popup-->
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+	<div class="container">
+		<nav class="navbar navbar-default navbar-custom">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header logo">
+				    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					    <span class="sr-only">Toggle navigation</span>
+					    <div id="nav-icon1">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+				    </div>
+				    <a href="index-2.html"><img class="logo" src="{% static 'images/lol.png' %}" alt="" width="119" height="58"></a>
+			    </div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav flex-child-menu menu-left">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li><a href="{% url 'home' %}">Home</a></li>
+						
+						<li><a href="{% url 'movielist' %}">Movies</a></li>
+						
+						
+						<li><a href="{% url 'blog' %}">News</a></li>	
+
+						<!-- <li><a href="{% url 'pnv' %}">Fan's Favorite</a></li> -->
+
+					</ul>
+					<ul class="nav navbar-nav flex-child-menu menu-right">
+						
+							<!-- <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							pages <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a> -->
+							<!-- <ul class="dropdown-menu level1">
+								<li><a href="landing.html">Landing</a></li>
+								<li><a href="404.html">404 Page</a></li>
+								<li class="it-last"><a href="comingsoon.html">Coming soon</a></li>
+							</ul>
+						</li>                 -->
+						<li><a href="#">Help</a></li>
+						<li class="loginLink"><a href="{% url 'login' %}">LOG In</a></li>
+						<li class="loginLink"><a href="{% url 'logout' %}">LOG Out</a></li>
+						<li class="btn signupLink"><a href="{% url 'register' %}">sign up</a></li>
+					</ul>
+				</div>
+			<!-- /.navbar-collapse -->
+	    </nav>
+	    
+	    <!-- top search form -->
+	    <div class="top-search">
+	    	<select>
+				<option value="united">Movies</option>
+				<!-- <option value="saab">Others</option> -->
+			</select>
+			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+	    </div>
+	</div>
+</header>
+<!-- END | Header -->
+
+<div class="slider movie-items">
+	<div class="container">
+		<div class="row">
+			<div class="social-link">
+				<p>Follow us: </p>
+				<a href="https://www.instagram.com/jackfromdjango/"><i class="ion-social-instagram"></i></a>
+				<a href="https://twitter.com/BigJackCODM"><i class="ion-social-twitter"></i></a>
+				<a href="https://www.youtube.com/BigJackCODM"><i class="ion-social-youtube"></i></a>
+				<a href="https://github.com/BigJack-Wealth"><i class="ion-social-github"></i></a>
+			</div>
+	    	<div  class="slick-multiItemSlider">
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<img src="{% static 'images/spiderman.jpg' %}" alt="" width="285" height="437"><a href="{% url 'videod' %}"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<!-- <span class="blue"><a href="#">Sci-fi</a></span> -->
+	    				</div>
+	    				<h6><a href="{% url 'videod' %}">Spiderman</a></h6>
+	    				
+	    			</div>
+	    		</div>
+				<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="{% static 'images/batman.jpg' %}" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<!-- <span class="yell"><a href="#">action</a></span> -->
+	    				</div>
+	    				<h6><a href="{% url 'bat' %}">The Batman</a></h6>
+	    				
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="{% static 'images/matrix.jpg' %}" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<!-- <span class="green"><a href="#">comedy</a></span> -->
+	    				</div>
+	    				<h6><a href="{% url 'mat' %}">Matrix 4</a></h6>
+	    				
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="{% static 'images/oldguard.jpg' %}" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<!-- <span class="blue"><a href="#">Sci-fi</a></span> <span class="orange"><a href="#">advanture</a></span> -->
+	    				</div>
+	    				<h6><a href="{% url 'mob' %}">Old Guard</a></h6>
+	    				
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="{% url 'charted' %}"><img src="{% static 'images/uncharted.jpg' %}" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<!-- <span class="blue"><a href="#">Sci-fi</a></span> -->
+	    				</div>
+	    				<h6><a href="{% url 'charted' %}">Uncharted</a></h6>
+	    				
+	    			</div>
+	    		</div>
+				<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="{% static 'images/mfall.jpg' %}" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="yell"><a href="#">coming soon</a></span>
+	    				</div>
+	    				<h6><a href="{% url 'moon' %}">Moonfall</a></h6>
+	    				
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<img src="{% static 'images/tib.jpg' %}" alt="" width="285" height="437">
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<!-- <span class="green"><a href="#">comedy</a></span> -->
+	    				</div>
+	    				<h6><a href="{% url 'tib' %}">The In Between</a></h6>
+	    				
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<img src="{% static 'images/turning red.jpg' %}" alt="" width="285" height="437">
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<!-- <span class="blue"><a href="#">Sci-fi</a></span> <span class="orange"><a href="#">advanture</a></span> -->
+	    				</div>
+	    				<h6><a href="{% url 'turn' %}">Turning Red</a></h6>
+	    				
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<img src="{% static 'images/koati.jpg' %}" alt="" width="285" height="437">
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<!-- <span class="green"><a href="#">comedy</a></span> -->
+	    				</div>
+	    				<h6><a href="{% url 'kot' %}">Koati</a></h6>
+	    				
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
+</div>
+<div class="movie-items">
+	<div class="container">
+		<div class="row ipad-width">
+			<div class="col-md-8">
+				<div class="title-hd">
+					<h2>Fan's Favorite</h2>
+					<a href="#" class="viewall">View all <i class="ion-ios-arrow-down"></i></a>
+				</div>
+				<div class="tabs">
+					<ul class="tab-links">
+						<li class="active"><a href="#tab1">Popular</a></li>
+						<li><a href="#tab2"> Anime</a></li>
+						<li><a href="#tab3"> Comedy   </a></li>
+						<li><a href="#tab4"> Sci-fi</a></li>                        
+					</ul>
+				    <div class="tab-content">
+				        <div id="tab1" class="tab active">
+				            <div class="row">
+				            	<div class="slick-multiItem">
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/dune.jpg' %}" alt="" width="185" height="284">
+					            			</div> 
+											<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now  </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Dune</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/X.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+											<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now  </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">X</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/Ecanto.jpeg' %}" alt="" width="185" height="284">
+					            			</div>
+											<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now  </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Ecanto</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/cellar.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now  </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">The Cellar</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/riverdance.jpeg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now  </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">RiverDance</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/yesday.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now  </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Yes Day</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/stowaway.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now  </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Stowaway</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/Vivo.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now  </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Vivo</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/warcraft.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Warcraft</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            	</div>
+				            </div>
+				        </div>
+				        <div id="tab2" class="tab">
+				           <div class="row">
+				            	<div class="slick-multiItem">
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/gintama.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now <i class="ion-android-arrow-dropright"></i> </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Gintama</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/bleach.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Bleach</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/naruto.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Naruto Shippuden</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/blacklagoon.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Black Laggon</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/samurai.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Samurai Champloo</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            	</div>
+				            </div>
+				        </div>
+				        <div id="tab3" class="tab">
+				        	<div class="row">
+				            	<div class="slick-multiItem">
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/homealone.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Home Alone</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/bridesmaid.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Bride's Maid</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/thehang.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">The Hangover</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/girlstrip.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Girls Trip</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/booksmart.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Booksmart</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            	</div>
+				            </div>
+			       	 	</div>
+			       	 	<div id="tab4" class="tab">
+				        	<div class="row">
+				            	<div class="slick-multiItem">
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/arrival.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Arrival</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/annihilation.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Annilation</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/inter.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Intersteller</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/guard.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">GOTG</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/starwars.jpeg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Star Wars</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            	</div>
+				            </div>
+			       	 	</div>
+				    </div>
+				</div>
+				<div class="title-hd">
+					<h2>on tv</h2>
+					<a href="#" class="viewall">View all <i class="ion-ios-arrow-down"></i></a>
+				</div>
+
+				
+
+				<div class="tabs">
+					<ul class="tab-links-2">
+						<li><a href="#tab21">Trending</a></li>
+						<li class="active"><a href="#tab22"> Action</a></li>
+						<li><a href="#tab23">  Horror  </a></li>
+						<li><a href="#tab24"> Romance</a></li>                        
+					</ul>
+				    <div class="tab-content">
+				        <div id="tab21" class="tab">
+				            <div class="row">
+				            	<div class="slick-multiItem">
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/johnwick.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">John Wick</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/madmax.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Mad Max</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/blackp.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Black Panther</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/thor.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Thor Ragnarok</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/mandm.jpeg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Malcom and Marie</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            	</div>
+				            </div>
+				        </div>
+				        <div id="tab22" class="tab active">
+				           <div class="row">
+				            	<div class="slick-multiItem">
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/shangchi.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Shang-chi</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/wonderwoman.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Wonder Woman</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/oldguard.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Old Guard</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/captainm.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Captain Marvel</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/TNM.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">The Northman</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/355.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">The 355</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/lostcity.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Lost City</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/blacklight.jpeg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Black Light</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/blackwidow.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Black Widow</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/red.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Red Notice</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            	</div>
+				            </div>
+				        </div>
+				        <div id="tab23" class="tab">
+				        	<div class="row">
+				            	<div class="slick-multiItem">
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/frank.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">I, Frankenstein</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/nightbooks.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Night Books</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/theconj.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">The Conjuring</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/thecraft.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">The Craft Legacy</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/thewalkingdead.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">The Walking Dead</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/theconvenant.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">The ConvenanT</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/worldwarz.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">World War Z</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/heneverdied.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">He Never Died</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/theperfection.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">The Perfection</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            	</div>
+				            </div>
+			       	 	</div>
+			       	 	 <div id="tab24" class="tab">
+				        	<div class="row">
+				            	<div class="slick-multiItem">
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/rideordie.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Ride Or Die</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+									<div class="slide-it">
+										<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/passengers.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Passengers</a></h6>
+					            				
+					            			</div>
+					            		</div>
+									</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/lovehard.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Love hard</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/lastchristmas.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Last Christmas</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="{% static 'images/holidate.jpg' %}" alt="" width="185" height="284">
+					            			</div>
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Watch Now </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#">Holidate</a></h6>
+					            				
+					            			</div>
+					            		</div>
+				            		</div>
+				            	</div>
+				            </div>
+			       	 	</div>
+				    </div>
+				</div>
+			</div>
+
+			#Advertisement
+			<div class="col-md-4">
+				<div class="sidebar">
+					<div class="ads">
+						<img src="{% static 'images/ad.jpg' %}" alt="" width="336" height="296">
+					</div>
+					<div class="celebrities">
+						<h4 class="sb-title">Spotlight Celebrities</h4>
+						<div class="celeb-item">
+							<a href="#"><img src="{% static 'images/samuelj.jpg' %}" alt="" width="70" height="70"></a>
+							<div class="celeb-author">
+								<h6><a href="https://en.wikipedia.org/wiki/Samuel_L._Jackson">Samuel L. Jackson</a></h6>
+								<span>Actor</span>
+							</div>
+						</div>
+						<div class="celeb-item">
+							<a href="#"><img src="{% static 'images/will smith.jpg' %}" alt="" width="70" height="70"></a>
+							<div class="celeb-author">
+								<h6><a href="https://en.wikipedia.org/wiki/Will_Smith">Will Smith</a></h6>
+								<span>Actor</span>
+							</div>
+						</div>
+						<div class="celeb-item">
+							<a href="#"><img src="{% static 'images/dwanye.jpg' %}" alt="" width="70" height="70"></a>
+							<div class="celeb-author">
+								<h6><a href="https://en.wikipedia.org/wiki/Dwayne_Johnson">Dwayne Johnson</a></h6>
+								<span>Actor</span>
+							</div>
+						</div>
+						<div class="celeb-item">
+							<a href="#"><img src="{% static 'images/robert.jpg' %}" alt="" width="70" height="70"></a>
+							<div class="celeb-author">
+								<h6><a href="https://en.wikipedia.org/wiki/Robert_Downey_Jr.">Robert Dwoney Jr</a></h6>
+								<span>Actor</span>
+							</div>
+						</div>
+						<a href="#" class="btn">See all celebrities<i class="ion-ios-arrow-down"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="trailers">
+	<div class="container">
+		<div class="row ipad-width">
+			<div class="col-md-12">
+				<div class="title-hd">
+					<h2>in theater</h2>
+					<a href="#" class="viewall">View all <i class="ion-ios-arrow-down"></i></a>
+				</div>
+				<div class="videos">
+				 	<div class="slider-for-2 video-ft">
+				 		<div>
+					    	<iframe class="item-video" src="#" data-src="https://www.youtube.com/embed/1Q8fG0TtVAY"></iframe>
+					    </div>
+					    <div>
+					    	<iframe class="item-video" src="#" data-src="https://www.youtube.com/embed/w0qQkSuWOS8"></iframe>
+					    </div>
+					    <div>
+					    	<iframe class="item-video" src="#" data-src="https://www.youtube.com/embed/44LdLqgOpjo"></iframe>
+					    </div>
+					    <div>
+					    	<iframe class="item-video" src="#" data-src="https://www.youtube.com/embed/gbug3zTm3Ws"></iframe>
+					    </div>
+					    <div>
+					    	<iframe class="item-video" src="#" data-src="https://www.youtube.com/embed/e3Nl_TCQXuw"></iframe>
+					    </div>
+					    <div>
+					    	<iframe class="item-video" src="#" data-src="https://www.youtube.com/embed/NxhEZG0k9_w"></iframe>
+					    </div>
+						
+						
+					</div>
+					<div class="slider-nav-2 thumb-ft">
+						<div class="item">
+							<div class="trailer-img">
+								<img src="{% static 'images/uploads/trailer7.jpg' %}"  alt="photo by Barn Images" width="4096" height="2737">
+							</div>
+							<div class="trailer-infor">
+	                        	<h4 class="desc">Wonder Woman</h4>
+	                        	<p>2:30</p>
+	                        </div>
+						</div>
+						<div class="item">
+							<div class="trailer-img">
+								<img src="{% static 'images/uploads/trailer2.jpg' %}"  alt="photo by Barn Images" width="350" height="200">
+							</div>
+							<div class="trailer-infor">
+	                        	<h4 class="desc">Oblivion: Official Teaser Trailer</h4>
+	                        	<p>2:37</p>
+	                        </div>
+						</div>
+						<div class="item">
+							<div class="trailer-img">
+								<img src="{% static 'images/uploads/trailer6.jpg' %}" alt="photo by Joshua Earle">
+							</div>
+							<div class="trailer-infor">
+	                        	<h4 class="desc">Exclusive Interview:  Skull Island</h4>
+	                        	<p>2:44</p>
+	                        </div>
+						</div>
+						<div class="item">
+							<div class="trailer-img">
+								<img src="{% static 'images/uploads/trailer3.png' %}" alt="photo by Alexander Dimitrov" width="100" height="56">
+							</div>
+							<div class="trailer-infor">
+	                        	<h4 class="desc">Logan: Director James Mangold Interview</h4>	
+	                        	<p>2:43</p>
+	                        </div>
+						</div>
+						<div class="item">
+							<div class="trailer-img">
+								<img src="{% static 'images/uploads/trailer4.png' %}"  alt="photo by Wojciech Szaturski" width="100" height="56">
+							</div>
+							<div class="trailer-infor">
+	                        	<h4 class="desc">Beauty and the Beast: Official Teaser Trailer 2</h4>	
+	                        	<p>2: 32</p>
+	                        </div>	
+						</div>
+						<div class="item">
+							<div class="trailer-img">
+								<img src="{% static 'images/uploads/trailer5.jpg' %}"  alt="photo by Wojciech Szaturski" width="360" height="189">
+							</div>
+							<div class="trailer-infor">
+	                        	<h4 class="desc">Fast&Furious 8</h4>	
+	                        	<p>3:11</p>
+	                        </div>	
+						</div>
+					
+					</div>
+				</div>   
+			</div>
+		</div>
+	</div>
+</div>
+<!-- latest new v1 section-->
+<div class="latestnew">
+	<div class="container">
+		<div class="row ipad-width">
+			<div class="col-md-8">
+				<div class="ads">
+					<img src="{% static 'images/pj.jpg' %}" alt="" width="728" height="106">
+				</div>
+				<div class="title-hd">
+					<h2>Latest news</h2>
+				</div>
+				<div class="tabs">
+					<ul class="tab-links-3">
+						<li class="active"><a href="#tab31">#Movies </a></li>
+						<li><a href="#tab32"> #TV Shows </a></li>              
+						<li><a href="#tab33">  # Celebs</a></li>                       
+					</ul>
+				    <div class="tab-content">
+				        <div id="tab31" class="tab active">
+				            <div class="row">
+				            	<div class="blog-item-style-1">
+				            		<img src="{% static 'images/uploads/blog-it1.jpg' %}" alt="" width="170" height="250">
+				            		<div class="blog-it-infor">
+				            			<h3><a href="https://deadline.com/2017/03/brie-larson-victoria-woodhull-amazon-studios-movie-first-female-presidential-candidate-1202048552/">Brie Larson to play first female white house candidate Victoria Woodull in Amazon film</a></h3>
+				            			
+				            			<p>Exclusive: <span>Amazon Studios </span>has acquired Victoria Woodhull, with Oscar winning Room star <span>Brie Larson</span> polsed to produce, and play the first female candidate for the presidency of the United States. Amazon bought it in a pitch package deal. <span> Ben Kopit</span>, who wrote the Warner Bros film <span>Libertine</span> that has...</p>
+				            		</div>
+				            	</div>
+				            </div>
+				        </div>
+				        <div id="tab32" class="tab">
+				           <div class="row">
+				            	<div class="blog-item-style-1">
+				            		<img src="{% static 'images/uploads/blog-it2.jpg' %}" alt="" width="170" height="250">
+				            		<div class="blog-it-infor">
+				            			<h3><a href="#">Tab 2</a></h3>
+				            			
+				            			<p>Exclusive: <span>Amazon Studios </span>has acquired Victoria Woodhull, with Oscar winning Room star <span>Brie Larson</span> polsed to produce, and play the first female candidate for the presidency of the United States. Amazon bought it in a pitch package deal. <span> Ben Kopit</span>, who wrote the Warner Bros film <span>Libertine</span> that has...</p>
+				            		</div>
+				            	</div>
+				            </div>
+				        </div>
+				        <div id="tab33" class="tab">
+				        	<div class="row">
+				            	<div class="blog-item-style-1">
+				            		<img src="{% static 'images/uploads/blog-it1.jpg' %}" alt="" width="170" height="250">
+				            		<div class="blog-it-infor">
+				            			<h3><a href="#">Tab 3</a></h3>
+				            			
+				            			<p>Exclusive: <span>Amazon Studios </span>has acquired Victoria Woodhull, with Oscar winning Room star <span>Brie Larson</span> polsed to produce, and play the first female candidate for the presidency of the United States. Amazon bought it in a pitch package deal. <span> Ben Kopit</span>, who wrote the Warner Bros film <span>Libertine</span> that has...</p>
+				            		</div>
+				            	</div>
+				            </div>
+			       	 	</div>
+				    </div>
+				</div>
+				<div class="morenew">
+					<div class="title-hd">
+						<h3>More news on Blockbuster</h3>
+						<a href="{% url 'blog' %}" class="viewall">See all Movies news<i class="ion-ios-arrow-down"></i></a>
+					</div>
+					<div class="more-items">
+						<div class="left">
+							<div class="more-it">
+								<h6><a href="https://screenrant.com/avatar-2-way-water-images-navi-pandora-ocean/">Avatar 2 First Images Reveal What James Cameron Has Spent 13 Years On</a></h6>
+								
+							</div>
+							<div class="more-it">
+								<h6><a href="https://screenrant.com/thor-love-thunder-gorr-gods-time-travel-multiverse-variants/">Huge Thor: Love & Thunder Theory Reveals Gorr Time Travel & Multiverse Link</a></h6>
+								
+								
+							</div>
+						</div>
+						<div class="right">
+							<div class="more-it">
+								<h6><a href="https://screenrant.com/harry-potter-credence-barebone-voldemort-gaunt-relative-theory/">Shocking Harry Potter Theory Reveals Credence Is Related To Voldemort</a></h6>
+								
+							</div>
+							<div class="more-it">
+								<h6><a href="https://screenrant.com/green-lantern-ryan-reynolds-blake-lively-relationship-success/">Green Lantern Director Reveals the DC Movie’s One Success</a></h6>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="sidebar">
+					<div class="sb-facebook sb-it">
+						<h4 class="sb-title">Instagram</h4>
+				
+						<div>
+					    	<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CcPznlhoijO/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/tv/CcPznlhoijO/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/tv/CcPznlhoijO/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Emmanuel Jack (@jackfromdjango)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+					    </div>
+					</div>
+					<!-- <div class="sb-twitter sb-it">
+						<h4 class="sb-title">Tweet to us</h4>
+						<div class="slick-tw">
+							<div class="tweet item" id=""><!-- Put your twiter id here -->
+							</div>
+							<div class="tweet item" id=""><!-- Put your 2nd twiter account id here -->
+							</div>
+						</div>					
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--end of latest new v1 section-->
+<!-- footer section-->
+<footer class="ht-footer">
+	<div class="container">
+		<div class="flex-parent-ft">
+			<div class="flex-child-ft item1">
+				 <!-- <a href="index-2.html"><img class="logo" src="{% static 'images/lol.png' %}" alt=""></a> -->
+				 <p>Magodo<br>
+				Lagos, Nigeria</p>
+				<p>Call us: <a href="#">(+234) 807 765 7165</a></p>
+			</div>
+			<div class="flex-child-ft item2">
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="#">About</a></li> 
+					
+					<li><a href="#">Contact Us</a></li>
+					
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Help Center</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item3">
+				<h4>Legal</h4>
+				<ul>
+					<!-- <li><a href="#">Terms of Use</a></li>  -->
+					<li><a href="#">Privacy Policy</a></li>	
+					<li><a href="#">Security</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item4">
+				<h4>Account</h4>
+				<ul>
+					<li><a href="#">My Account</a></li> 
+					<!-- <li><a href="#">Watchlist</a></li>	 -->
+					<!-- <li><a href="#">Collections</a></li> -->
+					<!-- <li><a href="#">User Guide</a></li> -->
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+	<div class="ft-copyright">
+		
+		<div class="backtotop">
+			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+		</div>
+	</div>
+</footer>
+<!-- end of footer section-->
+<!-- 
+<script src="js/jquery.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/plugins2.js"></script>
+<script src="js/custom.js"></script> -->
+</body>
+
+
+</html>
+
+{% endblock content %}

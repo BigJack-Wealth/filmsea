@@ -1,0 +1,292 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  
+
+
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+
+<!-- movielist07:38-->
+<head>
+	<!-- Basic need -->
+	<title>Open Pediatrics</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="css/plugins.css">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<!--preloading-->
+<div id="preloader">
+    <img class="logo" src="{% static 'images/lol.png' %}" alt="" width="119" height="58">
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!--end of preloading-->
+<!--login form popup-->
+<div class="login-wrapper" id="login-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <a href="{% url 'login' %}"><h3>Click To <br>Login</h3></a>
+        
+    </div>
+</div>
+
+<div class="login-wrapper" id="logout-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <a href="{% url 'logout' %}"><h3>Click To <br>Log Out</h3></a>
+        
+    </div>
+</div>
+<!--end of login form popup-->
+<!--signup form popup-->
+<div class="login-wrapper"  id="signup-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <a href="{% url 'register' %}"><h3>Click To <br>Sign Up</h3></a>
+        
+    </div>
+</div>
+<!--end of signup form popup-->
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+	<div class="container">
+		<nav class="navbar navbar-default navbar-custom">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header logo">
+				    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					    <span class="sr-only">Toggle navigation</span>
+					    <div id="nav-icon1">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+				    </div>
+				    <a href="index-2.html"><img class="logo" src="{% static 'images/lol.png' %}" alt="" width="119" height="58"></a>
+			    </div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav flex-child-menu menu-left">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li><a href="{% url 'home' %}">Home</a></li>
+						
+						<li><a href="{% url 'movielist' %}">Movies</a></li>
+						
+						
+						<li><a href="{% url 'blog' %}">News</a></li>
+						
+						
+						
+					</ul>
+					<ul class="nav navbar-nav flex-child-menu menu-right">
+						                
+						<li><a href="#">Help</a></li>
+						<li class="loginLink"><a href="{% url 'login' %}">LOG In</a></li>
+						<li class="loginLink"><a href="{% url 'logout' %}">LOG Out</a></li>
+						<li class="btn signupLink"><a href="{% url 'register' %}">sign up</a></li>
+					</ul>
+				</div>
+			<!-- /.navbar-collapse -->
+	    </nav>
+	    
+	    <!-- top search form -->
+	    <div class="top-search">
+	    	<select>
+				<option value="united">TV show</option>
+				<option value="saab">Others</option>
+			</select>
+			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+	    </div>
+	</div>
+</header>
+<!-- END | Header -->
+
+<div class="hero common-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1> Movies</h1>
+					<ul class="breadcumb">
+						<li class="active"><a href="{% url 'home' %}">Home</a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-single movie_list">
+	<div class="container">
+		<div class="row ipad-width2">
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="topbar-filter">
+					<p>Found <span>5 movies</span> in total</p>
+				</div>
+
+
+				<div class="movie-item-style-2">
+					<img src="{% static 'images/batman.jpg' %}" alt="">
+					<div class="mv-item-infor">
+						<h6><a href="{% url 'bat' %}">Batman <span> <br>(2022)</span></a></h6>
+						
+						<p class="describe">Batman ventures into Gotham City's underworld when a sadistic killer leaves behind a trail of cryptic clues</p>
+						<p class="run-time"> Run Time: 2h 56m    .     <span>MMPA: PG-13   .</span>     <span>March 4, 2022 (United States)</span></p>
+						<p>Director: <a href="https://en.wikipedia.org/wiki/Matt_Reeves">Matt Reeves</a></p>
+						<p>Stars: Robert Pattinson, Peter Craig,  Jeffery Wright</p>
+					</div>
+				</div>
+
+				<div class="movie-item-style-2">
+					<img src="{% static 'images/matrix.jpg' %}" alt="">
+					<div class="mv-item-infor">
+						<h6><a href="{% url 'mat' %}">Matrix <span> <br>(2021)</span></a></h6>
+						
+						<p class="describe">The Matrix Resurrections is a 2021 American science fiction action film produced, co-written, and directed by Lana Wachowski.</p>
+						<p class="run-time"> Run Time: 2h 28m    .     <span>MMPA: PG-13   .</span>     <span>December 24, 2021 (United States)</span></p>
+						<p>Director: <a href="https://en.wikipedia.org/wiki/The_Wachowskis">Lana Wachowski</a></p>
+						<p>Stars: Keanu Reeves, Carrie-Anne Moss,  Yahya Abdul-Mateen II</p>
+					</div>
+				</div>
+
+				<div class="movie-item-style-2">
+					<img src="{% static 'images/uncharted.jpg' %}" alt="">
+					<div class="mv-item-infor">
+						<h6><a href="{% url 'charted' %}">Uncharted <span> <br>(2022)</span></a></h6>
+						
+						<p class="describe">Uncharted is a 2022 American action-adventure film directed by Ruben Fleischer from a screenplay by Rafe Lee Judkins, Art Marcum and Matt Holloway, based on the Uncharted video game franchise developed by Naughty Dog and published by Sony Interactive Entertainment.</p>
+						<p class="run-time"> Run Time: 1h 56m    .     <span>MMPA: PG-13   .</span>     <span>17 February 2022 (United States)</span></p>
+						<p>Director: <a href="https://en.wikipedia.org/wiki/Ruben_Fleischer">Ruben Fleischer</a></p>
+						<p>Stars: Tom Halland, Mark Wahlberg, Antonio Banderas</p>
+					</div>
+				</div>
+
+				<div class="movie-item-style-2">
+					<img src="{% static 'images/tib.jpg' %}" alt="">
+					<div class="mv-item-infor">
+						<h6><a href="{% url 'tib' %}">The In-Between <span> <br>(2022)</span></a></h6>
+						
+						<p class="describe">Posin was born in Israel in the early 1970s, a month after his anti-communist parents left Russia. His father was a filmmaker and a member of a dissident underground intellectual society.</p>
+						<p class="run-time"> Run Time: 1h 55m    .     <span>MMPA: PG-13   .</span>     <span>February 11, 2022 (United States)</span></p>
+						<p>Director: <a href="https://en.wikipedia.org/wiki/Arie_Posin">Arie Posin</a></p>
+						<p>Stars: Joey King, Kyle Allen,  Kim Dickens</p>
+					</div>
+				</div>
+
+				<div class="movie-item-style-2">
+					<img src="{% static 'images/koati.jpg' %}" alt="">
+					<div class="mv-item-infor">
+						<h6><a href="{% url 'kot' %}">Batman <span> <br>(2021)</span></a></h6>
+						
+						<p class="describe">Three unlikely heroes - Nachi, a free-spirited coati; Xochi, a fearless monarch butterfly and Pako, a hyperactive glass frog - embark on an adventure to stop wicked coral snake Zaina from destroying their rain forest homeland.</p>
+						<p class="run-time"> Run Time: 1h 32m    .     <span>MMPA: PG   .</span>     <span>15 October, 2021 (United States)</span></p>
+						<p>Director: <a href="https://www.imdb.com/name/nm1843105/?ref_=tt_ov_dr">Rodrigo Perez-Castro</a></p>
+						<p>Stars: Sofia vergara, Adraina Barraza, Sebas</p>
+					</div>
+				</div>
+				
+				
+				<div class="topbar-filter">
+					<label>Movies per page:</label>
+					<select>
+						<option value="range">5 Movies</option>
+						<option value="saab">10 Movies</option>
+					</select>
+					<div class="pagination2">
+						<span>Page 1 of 2:</span>
+						<a class="active" href="#">1</a>
+						<a href="#">2</a>
+						<a href="#"><i class="ion-arrow-right-b"></i></a>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
+<!-- footer section-->
+<footer class="ht-footer">
+	<div class="container">
+		<div class="flex-parent-ft">
+			<div class="flex-child-ft item1">
+				 <!-- <a href="index-2.html"><img class="logo" src="{% static 'images/lol.png' %}" alt=""></a> -->
+				 <p>Magodo<br>
+				Lagos, Nigeria</p>
+				<p>Call us: <a href="#">(+234) 807 765 7165</a></p>
+			</div>
+			<div class="flex-child-ft item2">
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="#">About</a></li> 
+					
+					<li><a href="#">Contact Us</a></li>
+					
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Help Center</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item3">
+				<h4>Legal</h4>
+				<ul>
+					<!-- <li><a href="#">Terms of Use</a></li>  -->
+					<li><a href="#">Privacy Policy</a></li>	
+					<li><a href="#">Security</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item4">
+				<h4>Account</h4>
+				<ul>
+					<li><a href="#">My Account</a></li> 
+					<!-- <li><a href="#">Watchlist</a></li>	 -->
+					<!-- <li><a href="#">Collections</a></li> -->
+					<!-- <li><a href="#">User Guide</a></li> -->
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+	<div class="ft-copyright">
+		
+		<div class="backtotop">
+			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+		</div>
+	</div>
+</footer>
+<!-- end of footer section-->
+
+<script src="js/jquery_.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/plugins2.js"></script>
+<script src="js/custom.js"></script>
+</body>
+
+<!-- movielist07:38-->
+</html>
+
+{% endblock content %}
